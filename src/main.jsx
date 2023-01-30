@@ -2,16 +2,40 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Login from './assets/pages/Login'
+import Inicio from './assets/pages/Inicio'
+import AdminInicio from './assets/pages/AdminInicio'
+import AdminProductosNuevo from './assets/pages/AdminProductosNuevo'
+import AdminProductosEditar from './assets/pages/AdminProductosEditar'
+
 
 const router = createBrowserRouter([
   {
     path:'/',
-    element: <h1>Hola</h1>
+    element: <Login/>,
+    index:true
   },
   {
-    path:'/nosotros',
-    element: <h2>nosotros</h2>
-  }
+    path:'/Inicio',
+    element: <Inicio/>
+  },
+  {
+    path:'/Admin',
+    element: <AdminInicio/>,
+    children:[
+        {
+          path:'/Admin/nuevo',
+          element:<AdminProductosNuevo/>
+        },
+        {
+          path:'/Admin/:productoId/editar',
+          element:<AdminProductosEditar/>
+        },
+        {
+          path:'/Admin/:productoId/eliminar',
+        }
+    ]
+  },
 ])
 
 
