@@ -1,10 +1,6 @@
-import React from 'react'
+import { useEffect } from "react"
 
-const Inicio = ({nombre,ciudad,correo}) => {
-  console.log(nombre)
-  console.log(ciudad)
-  console.log(correo)
-  
+const Inicio = () => {
   return (
     <div>Inicio</div>
   )
